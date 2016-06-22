@@ -13,7 +13,7 @@ from PIL import Image
 listofjpegs = []
 for root, dirs, files in os.walk(".", topdown=True):
     for name in files:
-        if name.lower()[-3:] == 'JPG' or name.lower()[-3:] == 'PEG':
+        if name[-3:] == 'jpg' or name[-3:] == 'peg' or name[-3:] == 'JPG' or name[-3:] == 'PEG':
             listofjpegs.append(os.path.join(root, name))
 
 for i in listofjpegs:
