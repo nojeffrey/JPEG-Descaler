@@ -1,0 +1,4 @@
+- Descale JPEG images to a maximum of 1000px on longest edge.
+- Eg if a JPEG is 900x700, it wont be touched, if a JPEG is 3000x1800, it will be resized to 1000x600, etc
+- Useful for wordpress installs that have GB's of really large images.
+- Take a backup, then place this script in /wp-content/uploads/ and run.
