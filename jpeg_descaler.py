@@ -10,7 +10,9 @@ Take a backup, then place this script in /wp-content/uploads/ and run.
 import os, subprocess
 from PIL import Image
 
+before = subprocess.check_output(["du", "-h", ".", "--max-depth=0"]) 
 listofjpegs = []
+
 for root, dirs, files in os.walk(".", topdown=True):
     for name in files:
         if name[-3:] == 'jpg' or name[-3:] == 'peg' or name[-3:] == 'JPG' or name[-3:] == 'PEG':
@@ -25,3 +27,7 @@ for i in listofjpegs:
     if im.size[0] > 1000 or im.size[1] > 1000:
         subprocess.call(["mogrify", "-resize", "1000x1000", i])
         print "Resized", i
+
+
+after = subprocess.check_output(["du", "-h", ".", "--max-depth=0"])                                              
+print "Original size: %sAfter resizing: %s" %(before,after)
